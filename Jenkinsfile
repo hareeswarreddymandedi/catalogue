@@ -47,11 +47,11 @@ options {
                 }
             }
         }
-        stage('Test') {
+        stage('Docker Build') {
             steps {
                 script {
                     sh """
-                        echo "Building.."
+                        docker build -t catalogue:${appVersion} .
                     """
                 }
             }
