@@ -54,9 +54,11 @@ options {
             steps {
                 script {
                       withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                        shell"""
                     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ACC_ID.dkr.ecr.us-east-1.amazonaws.com
                     docker build -t ${ACC_ID}.102882775001.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion} .
                     docker push ${ACC_ID}.102882775001.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:${appVersion}
+                """
                 }   
                 }
             }
