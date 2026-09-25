@@ -36,11 +36,11 @@ options {
                 }
             }
         }
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
                 script {
                     sh """
-                        echo "version: ${appVersion}"
+                        npm install
                        
                     """
                     
