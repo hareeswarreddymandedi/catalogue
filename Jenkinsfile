@@ -5,9 +5,9 @@ pipeline {
         }
     }
 
- /* environment { 
-        COURSE= "Jenkins"
-    } */
+ environment { 
+       def appVersion = ""
+    }
 
 options {
     disableConcurrentBuilds()
@@ -30,7 +30,7 @@ options {
                     def jsonContent = readJSON file: 'package.json'
                     
                     // Extract the version field
-                    def appVersion = jsonContent.version
+                   appVersion = jsonContent.version
                     
                     echo "The extracted version is: ${appVersion}"
                 }
