@@ -40,7 +40,7 @@ options {
             steps {
                 script {
                     sh """
-                        echo "Building.."
+                        echo "version: ${appversion}"
                        
                     """
                     
